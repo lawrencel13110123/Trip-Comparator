@@ -1,0 +1,243 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+ 
+  background: url("../imgs/berkeley.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+  overflow: auto;
+}
+
+p, label {
+  color: black;
+  font-size: 12px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.container {
+  overflow: hidden;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.input-group {
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.input-group-addon {
+  color: black;
+}
+
+.navbar-trip {
+  background-color: white;
+  border-bottom: 2px solid grey; 
+}
+
+.navbar-right-custom {
+  /* Box-model */
+  margin-top: 10px;
+  margin-right: 20px;
+
+  /* Typography */
+  font-family: Arial;
+  font-weight: lighter;
+}
+
+.glyphicon-map-marker {
+  margin-right: 5px;
+}
+
+.plan-a-trip {
+  /* Box-model */
+  width: 100%;
+  padding: 20px;
+  /* Positioning */
+  margin-top: 25%;
+  margin-bottom: 15%;
+  /* Visual */
+  background-color: #616161;
+  font-size: 18px;
+}
+.footer {
+  /* Positioning */
+  position: fixed;
+  bottom: 0;
+  /* Box-model */
+  width: 100%;
+  height: 30px;
+  /* Visual */
+  background-color: #000;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 10px;
+  margin-left: 10px;
+  display: none;
+}
+
+.col-xs-5, .col-xs-7 {
+  margin-top: 80px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#map {
+  height: 500px;
+}
+
+#b1 {
+  background: url("../imgs/sf.jpg") no-repeat center center fixed;
+}
+
+#b2 {
+  background: url("../imgs/newyork.jpg") no-repeat center center fixed;
+}
+
+#b3 {
+  background: url("../imgs/la.jpg") no-repeat center center fixed;
+}
+
+#b4 {
+  background: url("../imgs/texas.jpg") no-repeat center center fixed;
+}
+
+#b5 {
+  background: url("../imgs/boston.jpg") no-repeat center center fixed;
+}
+
+
+#b1, #b2, #b3, #b4, #b5 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+#submit {
+  font-weight: bold;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #000;
+  background-color: #ffcb00;
+  border-color: #b89300 #8a6e00 #8a6e00;
+
+}
+
+#banner {
+  /* Box-model */
+  padding-top: 20px;
+  /* Positioning */
+  margin-left: 50px; 
+  font-family: 'Lobster Two', cursive;
+  /* Typography */
+  font-size: 40px;
+  font-weight: thin;
+  /* Visual */
+ /* background: #90ee90;*/
+}
+
+#logo {
+  width: 50px;
+  padding-top: 10px; 
+  padding-bottom: 20px;
+  padding-right: 5px;
+}
+
+#drive-results,
+#public-transit-results {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #000;
+  border-width: 1px;
+  /*width: 90%;*/
+  margin-top: 2%;
+  /*margin-left: 2%;*/
+  padding-left: 2px;
+  color: #000;
+  font-size: 14px;
+}
+
+#public-transit-results {
+  margin-bottom: 3%;
+  background-color: #33ff33;
+}
+
+#drive-results {
+  background-color: #66a3ff; 
+}
+
+#car-specs, #route-results {
+  overflow: auto;
+  background-color: #f0f5f5;
+  opacity: 0.98; 
+  border-radius: 7px;
+  border-style: solid;
+  border-color: #000;
+  border-width: 1px;
+}
+
+#car-specs {
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+/*-----Submit button for specific car mileage------*/
+#add-car {
+  border-style: solid;
+  border-color: #000;
+  border-width: 1px;
+  margin-bottom: 2%;
+  color: #000;
+  text-align: center;
+  font-family: 'Play', sans-serif;
+  font-size: 12px;
+}
+
+#about {
+   width: 100%;
+   padding: 20px;
+   /* Positioning */
+   margin-top: 25%;
+   margin-bottom: 15%;
+   /* Visual */
+   background: rgba(255, 255, 255, 0.8); 
+ }
+
+#page-1 {
+  display: default;
+}
+
+#page-2 {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+
+  .page-logo {
+    display: block;
+    width: 50%;
+    margin: auto;
+    position: relative
+  }
+
+  #logo {
+    position: absolute;
+    top: 0px;
+  }
+
+  .navbar-right-custom {
+    display: none;
+  }
+
+  .dd-menu {
+    display: inline-block;
+  }
+  
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>RouteMe</title>
+<!-- 3rd revision to form wrap and require input in text boxes -->
+<!-- ID naming convention changed to better reflect what it does -->
+
+<!-- Boostrap Stylesheet -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Local CSS stylesheet -->
+<link rel="stylesheet" href="assets/css/styles.css" media="screen">
+<!-- Google fonts stylesheet -->
+<link href="https://fonts.googleapis.com/css?family=Exo|Lobster+Two|Play|Rokkitt|Source+Code+Pro|Yellowtail" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--slide show script-->
+<script src="assets/javascript/slideShow.js"></script>
+
+</head>
+
+<body>
+  <!--Nav Bar for both pages-->
+  
+
+
+  <div id='page-1'>
+    <!-- Start of content wrap -->
+    <div class="wrap">
+      <div class="container">
+        <div class='row'>
+          <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container-fluid navbar-trip">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="row">
+                <div class="navbar-header">
+                  <div class="col-lg-12 phone-nav page-logo">
+                    <a class="navbar-brand" href="index.html" id="banner">RouteMe</a>
+                    <img id="logo" src="assets/imgs/logo.png" alt="logo"> 
+                  </div>
+                </div>
+                <!-- Nav links and other future content no toggling yet-->
+                <div>
+                  <ul class="nav navbar-nav navbar-right navbar-right-custom">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                  </ul>
+                </div> 
+
+                <div class="dropdown dd-menu">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-list"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                  </ul>
+                </div> <!-- End of #navbar-info -->
+              </div> <!-- End of Row -->
+            </div> <!-- End of #navbar-trip -->
+          </nav> <!-- End of navbar -->
+        </div>
+        <div class="row">
+          <div class="col-lg-12 plan-a-trip">
+            <form>
+              <span id="starting" class="form-group col-lg-6">
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span>Where are you starting your trip?</span>
+                <input id="autocomplete" class="start-address form-control" placeholder="Start Address" onFocus="geolocate()" type="text" required></input>
+                </div>
+              </span>
+              
+              <span id="destination" class="form-group col-lg-6">
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span>Where would you like to go?</span>
+                <input id="autocomplete-2" class="end-address form-control" placeholder="Destination Address" onFocus="geolocate()" type="text" required></input>
+                </div>
+              </span>
+              
+              <button id="submit" type="submit" class="btn btn-success center-block" >Compare Routes</button>
+            </form>
+                
+          </div> <!-- End of Col -->
+        </div> <!-- End of Row -->
+      </div><!-- End of Container -->
+    </div><!-- End of content wrap -->
+  </div><!-- End of page-1 -->
+
+  <div id='page-2'>
+    <div class="container">
+      <div class='row'>
+        <nav class="navbar navbar-fixed-top navbar-default">
+          <div class="container-fluid navbar-trip">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="row">
+              <div class="navbar-header">
+                <div class="col-lg-12 phone-nav page-logo">
+                  <a class="navbar-brand" href="index.html" id="banner">RouteMe</a>
+                  <img id="logo" src="assets/imgs/logo.png" alt="logo"> 
+                </div>
+              </div>
+              <!-- Nav links and other future content no toggling yet-->
+              <div>
+                <ul class="nav navbar-nav navbar-right navbar-right-custom">
+                  <li><a href="#">HOME</a></li>
+                  <li><a href="about.html">ABOUT</a></li>
+                </ul>
+              </div> 
+
+              <div class="dropdown dd-menu">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-list"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">HOME</a></li>
+                  <li><a href="about.html">ABOUT</a></li>
+                </ul>
+              </div> <!-- End of #navbar-info -->
+            </div> <!-- End of Row -->
+          </div> <!-- End of #navbar-trip -->
+        </nav> <!-- End of navbar -->
+      </div>
+      <!-- GOOGLE MAPS DIV -->
+      <div class="col-xs-7" >
+        <div id="map"></div>
+      </div>
+
+      <!-- RESULTS DIV -->
+      <div class="col-xs-5" id="route-results">
+        <h4>Route results for your trip</h4>
+        
+        <div id="drive-results" class="center-block">
+          <b>Driving Travel Summary:</b>
+          <p>Distance: <span id="travel-distance"></span></p>
+          <p>Time: <span id="travel-time"></span></p>
+          <p>Fuel cost: <span id='fuel-cost'></span></p>
+        </div>
+
+        <div id="public-transit-results" id="center-block">	
+          <b>Transit Travel Summary:</b>
+          <p>Departure Time: <span id="departure-time"></span></p>
+          <p>Arrival Time: <span id="arrival-time"></span></p>
+          <p>Transit Time: <span id="transit-time"></span></p>
+          <p>Fare Price: <span id="fare-price"></span></p>
+        </div>
+      </div>
+        
+      <div class="col-xs-5" id="car-specs"> <!-- RESULTS DIV -->
+        <h4>Enter car info for more accurate fuel cost</h4>
+        <!-- CAR MAKE PULLDOWN -->
+        <form id="carForm" class='form-group'>
+
+          <div class="input-group form-group col-md-12">
+            <span class="input-group-addon" >Make:</span>
+            <input id="car-make" type="text" class="form-control" placeholder="Make"  required>
+          </div>
+          <div class="form-group col-md-12 input-group">
+            <span class="input-group-addon" >Model:</span>
+            <input id="car-model" type="text" class="form-control" placeholder="Model"  required>
+          </div>
+          <div class="input-group form-group col-md-12">
+            <span class="input-group-addon" >Year:</span>
+            <input id="car-year" type="text" class="form-control" placeholder="Year">
+          </div>
+
+           <button type="submit" class="btn btn-sm btn-warning center-block" id="add-car">Add Car</button>
+           </form>
+      </div> <!-- End Car specs -->
+    </div> <!-- End Bootstrap Container -->
+  </div>
+
+  <!-- Start of footer -->
+  <footer class="footer">
+    <p class="text-muted text-muted-footer text-center">
+      &copy; Copyright 2017 Team RouteMe
+    </p>
+  </footer>
+  <!-- End of footer -->
+
+  <!--scripts for our app-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3zxPOYEjaZFkWhGi4WRjUVWXXXF7GRUA&libraries=places&callback=initMap"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/javascript/javascript.js"></script>
+</body>
+</html>
