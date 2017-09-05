@@ -28,10 +28,12 @@ RouteMe is an Javascript application that creates a clear cost and time comparis
 ## Local Installation
 ### Step 1: Git Clone
 Clone Trip-Comparator to your local git repo like the following:
+
 > git clone https://github.com/lawrencel13110123/Trip-Comparator
+
 The Trip-Comparator project and its files should now be in your project folder.
 
-### Step 4: Launch app 
+### Step 2: Launch app 
 Launch app by opening index.html file in browser (Chrome preferred) or by visiting https://lawrencel13110123.github.io/Trip-Comparator/
 
 <a name="display"></a>
