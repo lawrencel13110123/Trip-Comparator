@@ -37,4 +37,4 @@ Launch app by opening index.html file in browser (Chrome preferred) or by visiti
 <a name="display"></a>
 ## App Display
 ### Demo
-![Demo](/assets/imgs/screen)
+![Demo](/assets/imgs/screen.mov)
